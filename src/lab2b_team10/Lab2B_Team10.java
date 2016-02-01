@@ -7,7 +7,7 @@ package lab2b_team10;
 
 /**
  *
- * @author antonizoon
+ * @author antonizoon, aahughes
  */
 
 // hi
