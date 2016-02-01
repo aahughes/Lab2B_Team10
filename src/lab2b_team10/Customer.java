@@ -12,4 +12,7 @@ package lab2b_team10;
 public class Customer {
     private int accountNumber;
             
+    Customer(int accountNum){
+        this.accountNumber = accountNum;
+    }
 }
