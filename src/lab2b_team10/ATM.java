@@ -8,23 +8,28 @@ package lab2b_team10;
 
 /**
  *
- * @author Ed Reinoso
+ * @author Ed Reinoso, aahughes
  */
 public class ATM {
     private Account account;
     private Check check;
     private double amount;
+    
+    // edit when accounts are accessible by accountNumber
 
-    public void withdraw (int accountNumber, double accountBalance) {
-        
+    public void withdraw (int accountNumber, double amount) {
+        // account = account with accountNumber
+        account.setBalance(account.getBalance() - amount);
     }
     
-    public void deposit (int accountNumber, double accountBalance) {
-        
+    public void deposit (int accountNumber, double amount) {
+        // account = account with accountNumber
+        account.setBalance(account.getBalance() + amount);
     }
     
     public double checkBalance (int accountNumber) {
-    //    accountNumber = account.accountNumber;
-        return accountNumber;
+    //    accountNumber = account with accountNumber
+        return account.getBalance();
     }
 }
+
