@@ -7,7 +7,7 @@ package lab2b_team10;
 
 /**
  *
- * @author antonizoon
+ * @author antonizoon, aahughes
  */
 public class Savings extends Account {
     private double interestRate;
@@ -32,7 +32,7 @@ public class Savings extends Account {
     }
     
     // mutator for interest rate
-    public void setInterestRate() {
+    public void setInterestRate(double interestRate) {
         this.interestRate = interestRate;
     }
 }
