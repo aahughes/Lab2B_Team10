@@ -7,10 +7,10 @@ package lab2b_team10;
 
 /**
  *
- * @author ELCHOCO
+ * @author Ed Reinoso
  */
 public class Currency extends ATM {
     private String name;
-   private String id;
-   private double convRate;
+    private String id;
+    private double convRate;
 }

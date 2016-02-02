@@ -12,7 +12,7 @@ package lab2b_team10;
 
 // hi
 // Ed 
-public class Lab2B_Team10 {
+public class Bank {
 
     /**
      * @param args the command line arguments

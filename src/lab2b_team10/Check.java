@@ -8,8 +8,12 @@ package lab2b_team10;
 
 /**
  *
- * @author ELCHOCO
+ * @author Ed Reinoso
  */
 public class Check {
-    
+    private double amount;
+    private String writtenTo;
+    private Currency currency;
+    private int checkNumber;
+    private int accountNumber;
 }

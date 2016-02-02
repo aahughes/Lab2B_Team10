@@ -8,7 +8,7 @@ package lab2b_team10;
 
 /**
  *
- * @author ELCHOCO
+ * @author Ed Reinoso
  */
 public class ATM {
     private Account account;
