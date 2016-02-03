@@ -6,7 +6,6 @@
 package lab2b_team10;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -31,25 +30,62 @@ public class Bank {
         double currentInterestRate = defaultInterestRate;
         String command;
         int num;
-        ATM atm;
         
         initializeAccounts();
         initializeCustomers();
         
-        System.out.println("Would you like to create a new account? Y/N");
+        System.out.println("Welcome to the banking interface.");
+        
+        //create new account or not
+        System.out.println("Would you like to open a new account? Y/N");
         command = scan.nextLine();
-        if (command.equals("Y")){
+        if (command.equals("Y") || command.equals("y")){
             Customer currentCustomer = createCustomer(createAccount(currentInterestRate));
             System.out.println("New Customer Created: " + currentCustomer.getName() + ", Account: " + currentCustomer.getAccountNum() + ", Current balance: " + getAccount(currentCustomer.getAccountNum()).getBalance());
         }
         else
             System.out.println("Exiting account creation.");
         
+        // use ATM after creating account
         System.out.println("To access ATM, enter account number.");
         num = intscan.nextInt();
         if (getAccount(num) != null)
-            atm = new ATM(num);
+            useATM(num);
+        else
+            System.out.println("Invalid account number.");
         
+    }
+    
+    
+    // method prompts user for commands and execute ATM transactions until user quits
+    public static void useATM(int accountNum){
+        double amount = 0;
+        ATM atm = new ATM(accountNum);
+        System.out.println("Please input command: Withdraw, Deposit, CheckBalance, or Quit.");
+        String command = scan.nextLine();
+        while (!command.equals("Quit")){
+            if (command.equals("CheckBalance")){
+                System.out.println(atm.checkBalance());
+            }
+            else if (command.equals("Deposit")){
+                System.out.println("Please enter deposit amount.");
+                amount = doublescan.nextDouble();
+                atm.deposit(amount);
+            }
+            else if (command.equals("Withdraw")){
+                System.out.println("Please enter withdrawal amount.");          
+                amount = doublescan.nextDouble();
+                if (atm.checkBalance() >= amount)
+                    atm.withdraw(amount);
+                else
+                    System.out.println("Insufficient funds.");
+            }
+            else if (!command.equals("Quit")){
+                System.out.println("Invalid command.");
+            }
+            System.out.println("Please input new command: Withdraw, Deposit, CheckBalance, or Quit.");
+            command = scan.nextLine();
+        }
     }
     
     private static void initializeAccounts(){
