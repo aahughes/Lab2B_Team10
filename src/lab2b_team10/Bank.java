@@ -23,7 +23,7 @@ public class Bank {
     public static void main(String[] args) {
         double currentInterestRate = defaultInterestRate;
         Customer customer = createCustomer(createAccount(currentInterestRate));
-        System.out.println("New Customer Created: " + customer.getName() + ", Account: " + customer.getAccountNum() + ", Current balance: " + customer.getAccountBalance());
+        System.out.println("New Customer Created: " + customer.getName() + ", Account: " + customer.getAccountNum() + ", Current balance: " + (customer.getAccount()).getBalance());
         
     }
     
@@ -68,15 +68,15 @@ public class Bank {
                     case "Personal":
                         System.out.print("Please enter\nfirst name: ");
                         String first = scan.nextLine();
-                        System.out.print("last name: ");
+                        System.out.print("Last name: ");
                         String last = scan.nextLine();
-                        newCustomer = new Personal(customerAccount.getNumber(), customerAccount.getBalance(), first,last);
+                        newCustomer = new Personal(customerAccount, first,last);
                         customerCreated = true;
                         break;
                     case "Business":
                         System.out.println("Please enter business name.");
                         String name = scan.nextLine();
-                        newCustomer = new Business(customerAccount.getNumber(), customerAccount.getBalance(), name);
+                        newCustomer = new Business(customerAccount, name);
                         customerCreated = true;
                         break;
                     default:
