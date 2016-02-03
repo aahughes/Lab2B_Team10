@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author antonizoon, aahughes
+ * @author antonizoon, aahughes, Ed Reinoso
  */
 
 public class Bank {
@@ -141,7 +141,7 @@ public class Bank {
             String customerType = scan.nextLine();
                 switch (customerType) {
                     case "Personal":
-                        System.out.print("Please enter\nfirst name: ");
+                        System.out.print("Please enter\nFirst name: ");
                         String first = scan.nextLine();
                         System.out.print("Last name: ");
                         String last = scan.nextLine();
