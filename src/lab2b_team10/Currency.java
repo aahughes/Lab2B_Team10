@@ -13,4 +13,14 @@ public class Currency {
     private String name;
     private String id;
     private double convRate;
+    
+    Currency(String name, String id, double convRate){
+        this.name = name;
+        this.id = id;
+        this. convRate = convRate;
+    }
+    
+    public String getName(){
+        return name;
+    }
 }

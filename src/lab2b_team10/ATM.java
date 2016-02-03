@@ -11,11 +11,12 @@ package lab2b_team10;
  * @author Ed Reinoso, aahughes
  */
 public class ATM {
+    private Currency currency;
     private Account account;
     private Check check;
     private double amount;
     
-    public ATM(int accountNum){
+    public ATM(int accountNum, Currency currency){
         account = Bank.getAccount(accountNum);
     }
     
@@ -29,6 +30,10 @@ public class ATM {
     
     public double checkBalance () {
         return account.getBalance();
+    }
+    
+    public Currency getCurrency(){
+        return currency;
     }
 }
 

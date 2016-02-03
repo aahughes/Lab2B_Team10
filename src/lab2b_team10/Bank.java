@@ -15,6 +15,7 @@ import java.util.Scanner;
  */
 
 public class Bank {
+    static Currency dollar = new Currency("Dollar", "USD", 1.00);
     static Scanner scan = new Scanner(System.in);
     static Scanner doublescan = new Scanner(System.in);
     static Scanner intscan = new Scanner(System.in);
@@ -60,12 +61,12 @@ public class Bank {
     // method prompts user for commands and execute ATM transactions until user quits
     public static void useATM(int accountNum){
         double amount = 0;
-        ATM atm = new ATM(accountNum);
+        ATM atm = new ATM(accountNum,dollar);
         System.out.println("Please input command: Withdraw, Deposit, CheckBalance, or Quit.");
         String command = scan.nextLine();
         while (!command.equals("Quit")){
             if (command.equals("CheckBalance")){
-                System.out.println(atm.checkBalance());
+                System.out.println("Balance:" + atm.checkBalance() + " " + atm.getCurrency().getName());
             }
             else if (command.equals("Deposit")){
                 System.out.println("Please enter deposit amount.");

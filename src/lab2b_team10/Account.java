@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package lab2b_team10;
-import java.util.Random;
 
 /**
  *
