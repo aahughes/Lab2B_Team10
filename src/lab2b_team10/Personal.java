@@ -19,4 +19,9 @@ public class Personal extends Customer{
         firstName = first;
         lastName = last;
     }
+    
+    @Override
+    public String getName(){
+        return firstName + " " + lastName;
+    }
 }

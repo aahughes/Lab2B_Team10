@@ -16,4 +16,9 @@ public class Business extends Customer{
         super(accountNum);
         businessName = name;
     }
+    
+    @Override
+    public String getName(){
+        return businessName;
+    }
 }

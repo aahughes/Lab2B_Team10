@@ -9,10 +9,16 @@ package lab2b_team10;
  *
  * @author aahughes
  */
-public class Customer {
+public abstract class Customer {
     private int accountNumber;
             
     Customer(int accountNum){
         this.accountNumber = accountNum;
+    }
+    
+    abstract public String getName();
+    
+    public int getAccountNum(){
+        return accountNumber;
     }
 }
