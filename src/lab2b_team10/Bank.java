@@ -66,7 +66,7 @@ public class Bank {
         String command = scan.nextLine();
         while (!command.equals("Quit")){
             if (command.equals("CheckBalance")){
-                System.out.println("Balance:" + atm.checkBalance() + " " + atm.getCurrency().getName());
+                System.out.println("Balance: " + atm.checkBalance() + " " + atm.getCurrency().getName() + "s");
             }
             else if (command.equals("Deposit")){
                 System.out.println("Please enter deposit amount.");

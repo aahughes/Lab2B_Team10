@@ -18,6 +18,7 @@ public class ATM {
     
     public ATM(int accountNum, Currency currency){
         account = Bank.getAccount(accountNum);
+        this.currency = currency;
     }
     
     public void withdraw (double amount) {
