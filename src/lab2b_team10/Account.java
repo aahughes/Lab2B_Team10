@@ -8,7 +8,7 @@ import java.util.Random;
 
 /**
  *
- * @author antonizoon
+ * @author antonizoon, aahughes
  */
 public class Account {
     // class variables
@@ -16,18 +16,23 @@ public class Account {
     
     // generate random account number
     private int accountNum;
-    final int max = 0;
-    final int min = 10000;
+    //final int max = 0;
+    //final int min = 10000;
+    private static int currentAccountNum = 1;
     
     public Account() {
-        Random rand = new Random();
-        this.accountNum = rand.nextInt((max - min) + 1) + min;
+        //Random rand = new Random();
+       // this.accountNum = rand.nextInt((max - min) + 1) + min;
+        this.accountNum = currentAccountNum;
+        currentAccountNum++;
         this.balance = 0.0;     // start at $0.0
     }
     
     public Account(double balance) {
-        Random rand = new Random();
-        this.accountNum = rand.nextInt((max - min) + 1) + min;
+        //Random rand = new Random();
+        //this.accountNum = rand.nextInt((max - min) + 1) + min;
+        this.accountNum = currentAccountNum;
+        currentAccountNum++;
         this.balance = balance;
     }
     
@@ -39,5 +44,9 @@ public class Account {
     // mutator for balance
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+    
+    public int getNumber(){
+        return accountNum;
     }
 }
