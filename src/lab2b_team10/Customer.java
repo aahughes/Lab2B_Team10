@@ -10,22 +10,16 @@ package lab2b_team10;
  * @author aahughes
  */
 public abstract class Customer {
-    private Account account;
     private int accountNumber;
     
     
-    Customer(Account newAccount){
-        this.account = newAccount;
-        accountNumber = account.getNumber();
+    Customer(int accountNum){
+        accountNumber = accountNum;
     }
     
     abstract public String getName();
     
     public int getAccountNum(){
         return accountNumber;
-    }
-    
-    public Account getAccount(){
-        return account;
     }
 }

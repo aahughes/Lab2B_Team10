@@ -15,20 +15,19 @@ public class ATM {
     private Check check;
     private double amount;
     
-    // edit when accounts are accessible by accountNumber
-
-    public void withdraw (int accountNumber, double amount) {
-        //account = account with accountNumber
+    public ATM(int accountNum){
+        account = Bank.getAccount(accountNum);
+    }
+    
+    public void withdraw (double amount) {
         account.setBalance(account.getBalance() - amount);
     }
     
-    public void deposit (int accountNumber, double amount) {
-        //account = account with accountNumber
+    public void deposit (double amount) {
         account.setBalance(account.getBalance() + amount);
     }
     
-    public double checkBalance (int accountNumber) {
-        //accountNumber = account with accountNumber
+    public double checkBalance () {
         return account.getBalance();
     }
 }

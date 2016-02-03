@@ -5,6 +5,9 @@
  */
 package lab2b_team10;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -15,20 +18,54 @@ import java.util.Scanner;
 public class Bank {
     static Scanner scan = new Scanner(System.in);
     static Scanner doublescan = new Scanner(System.in);
+    static Scanner intscan = new Scanner(System.in);
     static double defaultInterestRate = 0.75;
+    private static Map<Integer, Account> accountMap;
+    private static Map<Integer, Customer> customerMap;
+    
     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         double currentInterestRate = defaultInterestRate;
-        Customer customer = createCustomer(createAccount(currentInterestRate));
-        System.out.println("New Customer Created: " + customer.getName() + ", Account: " + customer.getAccountNum() + ", Current balance: " + (customer.getAccount()).getBalance());
+        String command;
+        int num;
+        ATM atm;
+        
+        initializeAccounts();
+        initializeCustomers();
+        
+        System.out.println("Would you like to create a new account? Y/N");
+        command = scan.nextLine();
+        if (command.equals("Y")){
+            Customer currentCustomer = createCustomer(createAccount(currentInterestRate));
+            System.out.println("New Customer Created: " + currentCustomer.getName() + ", Account: " + currentCustomer.getAccountNum() + ", Current balance: " + getAccount(currentCustomer.getAccountNum()).getBalance());
+        }
+        else
+            System.out.println("Exiting account creation.");
+        
+        System.out.println("To access ATM, enter account number.");
+        num = intscan.nextInt();
+        if (getAccount(num) != null)
+            atm = new ATM(num);
         
     }
     
+    private static void initializeAccounts(){
+        accountMap = new HashMap<Integer, Account>();
+    }
+    
+    private static void initializeCustomers(){
+        customerMap = new HashMap<Integer, Customer>();
+    }
+    
+    public static Account getAccount(int accountNum){
+        return accountMap.get(accountNum);
+    }
+    
     // Run to create a new account
-    public static Account createAccount(double currentInterestRate){
+    public static int createAccount(double currentInterestRate){
         boolean accountCreated = false;
         double newBalance;
         Account newAccount = null;
@@ -54,11 +91,12 @@ public class Bank {
                     break;
             }
         }
-        return newAccount;
+        accountMap.put(newAccount.getNumber(),newAccount);
+        return newAccount.getNumber();
     }
     
-    // Run to create a new Customer when given an Account (create Account first)
-    public static Customer createCustomer(Account customerAccount){
+    // Run to create a new Customer when given an account number (create Account first)
+    public static Customer createCustomer(int accountNum){
         boolean customerCreated = false;
         Customer newCustomer = null;
         while (!customerCreated){
@@ -70,13 +108,13 @@ public class Bank {
                         String first = scan.nextLine();
                         System.out.print("Last name: ");
                         String last = scan.nextLine();
-                        newCustomer = new Personal(customerAccount, first,last);
+                        newCustomer = new Personal(accountNum, first,last);
                         customerCreated = true;
                         break;
                     case "Business":
                         System.out.println("Please enter business name.");
                         String name = scan.nextLine();
-                        newCustomer = new Business(customerAccount, name);
+                        newCustomer = new Business(accountNum, name);
                         customerCreated = true;
                         break;
                     default:
@@ -84,6 +122,7 @@ public class Bank {
                         break;
                 }
         }
+        customerMap.put(accountNum, newCustomer);
         return newCustomer;
     } 
 }

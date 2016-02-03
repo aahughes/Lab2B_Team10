@@ -18,7 +18,7 @@ public class Account {
     
     public Account() {
         this.accountNum = currentAccountNum;
-        //currentAccountNum++;
+        currentAccountNum++;
     }
     
     public Account(double balance) {
@@ -40,4 +40,5 @@ public class Account {
     public int getNumber(){
         return accountNum;
     }
+    
 }
