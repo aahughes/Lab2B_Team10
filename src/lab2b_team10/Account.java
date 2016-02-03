@@ -13,24 +13,15 @@ import java.util.Random;
 public class Account {
     // class variables
     private double balance;
-    
-    // generate random account number
     private int accountNum;
-    //final int max = 0;
-    //final int min = 10000;
     private static int currentAccountNum = 1;
     
     public Account() {
-        //Random rand = new Random();
-       // this.accountNum = rand.nextInt((max - min) + 1) + min;
         this.accountNum = currentAccountNum;
-        currentAccountNum++;
-        this.balance = 0.0;     // start at $0.0
+        //currentAccountNum++;
     }
     
     public Account(double balance) {
-        //Random rand = new Random();
-        //this.accountNum = rand.nextInt((max - min) + 1) + min;
         this.accountNum = currentAccountNum;
         currentAccountNum++;
         this.balance = balance;

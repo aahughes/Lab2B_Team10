@@ -14,8 +14,8 @@ public class Personal extends Customer{
     private String lastName;
     
     
-    Personal(int accountNum, String first, String last){
-        super(accountNum);
+    Personal(int accountNum, double accountBalance, String first, String last){
+        super(accountNum, accountBalance);
         firstName = first;
         lastName = last;
     }

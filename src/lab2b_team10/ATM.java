@@ -18,17 +18,17 @@ public class ATM {
     // edit when accounts are accessible by accountNumber
 
     public void withdraw (int accountNumber, double amount) {
-        // account = account with accountNumber
+        //account = account with accountNumber
         account.setBalance(account.getBalance() - amount);
     }
     
     public void deposit (int accountNumber, double amount) {
-        // account = account with accountNumber
+        //account = account with accountNumber
         account.setBalance(account.getBalance() + amount);
     }
     
     public double checkBalance (int accountNumber) {
-    //    accountNumber = account with accountNumber
+        //accountNumber = account with accountNumber
         return account.getBalance();
     }
 }

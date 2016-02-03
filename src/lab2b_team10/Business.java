@@ -12,8 +12,8 @@ package lab2b_team10;
 public class Business extends Customer{
     private String businessName;
     
-    Business(int accountNum, String name){
-        super(accountNum);
+    Business(int accountNum, double accountBalance, String name){
+        super(accountNum, accountBalance);
         businessName = name;
     }
     

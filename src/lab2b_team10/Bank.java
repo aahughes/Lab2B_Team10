@@ -23,7 +23,7 @@ public class Bank {
     public static void main(String[] args) {
         double currentInterestRate = defaultInterestRate;
         Customer customer = createCustomer(createAccount(currentInterestRate));
-        System.out.println("New Customer Created: " + customer.getName() + ", Account: " + customer.getAccountNum());
+        System.out.println("New Customer Created: " + customer.getName() + ", Account: " + customer.getAccountNum() + ", Current balance: " + customer.getAccountBalance());
         
     }
     
@@ -32,6 +32,7 @@ public class Bank {
         boolean accountCreated = false;
         double newBalance;
         Account newAccount = null;
+        //Account settingBalance = new Account();
         while (!accountCreated){
             System.out.println("Please specify account type: Checking or Savings.");
             String accountType = scan.nextLine();
@@ -65,16 +66,17 @@ public class Bank {
             String customerType = scan.nextLine();
                 switch (customerType) {
                     case "Personal":
-                        System.out.println("Please enter first name, then last name.");
+                        System.out.print("Please enter\nfirst name: ");
                         String first = scan.nextLine();
+                        System.out.print("last name: ");
                         String last = scan.nextLine();
-                        newCustomer = new Personal(customerAccount.getNumber(),first,last);
+                        newCustomer = new Personal(customerAccount.getNumber(), customerAccount.getBalance(), first,last);
                         customerCreated = true;
                         break;
                     case "Business":
                         System.out.println("Please enter business name.");
                         String name = scan.nextLine();
-                        newCustomer = new Business(customerAccount.getNumber(),name);
+                        newCustomer = new Business(customerAccount.getNumber(), customerAccount.getBalance(), name);
                         customerCreated = true;
                         break;
                     default:
@@ -83,8 +85,5 @@ public class Bank {
                 }
         }
         return newCustomer;
-    }
-    
-    
-    
+    } 
 }
