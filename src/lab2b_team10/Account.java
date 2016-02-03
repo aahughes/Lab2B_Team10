@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package lab2b_team10;
-import java.util.Random;
 
 /**
  *
@@ -14,7 +13,7 @@ public class Account {
     // class variables
     private double balance;
     private int accountNum;
-    private static int currentAccountNum = 1;
+    private static int currentAccountNum = 1;  // static variable that increments each time an instance is made.
     
     public Account() {
         this.accountNum = currentAccountNum;

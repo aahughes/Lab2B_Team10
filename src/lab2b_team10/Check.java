@@ -11,9 +11,42 @@ package lab2b_team10;
  * @author Ed Reinoso
  */
 public class Check {
+    private int checkNumber;
+    private static int currentCheckNum = 1;  // static variable that increments each time an instance is made.
+    private int accountNumber;
+    
     private double amount;
     private String writtenTo;
     private Currency currency;
-    private int checkNumber;
-    private int accountNumber;
+    
+    public Check(int accountNumber, double amount, String writtenTo, Currency currency) {
+        this.checkNumber = currentCheckNum;
+        currentCheckNum++;  // add one for the next check
+        this.accountNumber = accountNumber;
+        
+        this.amount = amount;
+        this.writtenTo = writtenTo;
+        this.currency = currency;
+    }
+    
+    // accessors, no mutators because checks cannot be changed once written
+    public int checkNumber() {
+        return checkNumber;
+    }
+    
+    public int accountNumber() {
+        return accountNumber;
+    }
+    
+    public double getAmount() {
+        return amount;
+    }
+    
+    public String writtenTo() {
+        return writtenTo;
+    }
+    
+    public Currency currency() {
+        return currency;
+    }
 }
